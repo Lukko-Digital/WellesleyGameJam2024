@@ -6,6 +6,8 @@
 size = Vector2(10, 10)
 
 [node name="bullet" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_qlsaq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
