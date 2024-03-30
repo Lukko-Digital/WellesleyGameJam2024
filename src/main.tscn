@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://tu268rhi3o1q" path="res://src/player/player.tscn" id="1_thqqx"]
 [ext_resource type="PackedScene" uid="uid://gkgcqo2tgi64" path="res://src/enemies/dasher.tscn" id="2_71rgm"]
-[ext_resource type="PackedScene" uid="uid://d2sv6qqgckxxa" path="res://src/display/game_camera.tscn" id="2_wd61b"]
+[ext_resource type="PackedScene" uid="uid://ds128noh7ia8o" path="res://src/display/game_camera.tscn" id="2_wd61b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fbgpi"]
 vertices = PackedVector2Array(1721, 582, 1720, 885, 1148, 884, 1148, 582)
@@ -13,6 +13,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1721, 582, 1720, 885, 1
 position = Vector2(683, 408)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -5
 offset_left = -653.0
 offset_top = -381.0
 offset_right = -77.0
@@ -30,4 +31,3 @@ position = Vector2(-559, -283)
 [node name="game_camera" parent="player" instance=ExtResource("2_wd61b")]
 
 [node name="dasher" parent="." instance=ExtResource("2_71rgm")]
-position = Vector2(-202, -142)

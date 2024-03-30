@@ -9,10 +9,11 @@ const BULLET = {
 }
 
 @onready var bullet_scene = preload("res://src/player/bullet.tscn")
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gun: Sprite2D = $gun
 
 @onready var health = MAX_HEALTH: set = _set_health
-
+var idle_dir: Vector2 = Vector2.DOWN
 
 ## --- SETTERS ---
 
@@ -32,7 +33,33 @@ func _physics_process(delta):
 		Input.get_axis("left", "right"), Input.get_axis("up", "down")
 	).normalized()
 	velocity = direction * SPEED
+	handle_animation(direction)
 	move_and_slide()
+	print(idle_dir)
+
+
+func handle_animation(direction: Vector2):
+	match direction.round():
+		Vector2.ZERO:
+			if idle_dir == Vector2.DOWN:
+				sprite.play("idle_front")
+			else:
+				sprite.play("idle_back")
+		# down diag and horizontal
+		Vector2.RIGHT, Vector2(1, 1), Vector2.LEFT, Vector2(-1, 1):
+			sprite.play("run_down_right")
+		# up diag
+		Vector2(1, -1), Vector2(-1, -1):
+			sprite.play("run_up_right")
+	
+	if direction.x < 0:
+		sprite.flip_h = true
+	else: sprite.flip_h = false
+	
+	if direction.y < 0:
+		idle_dir = Vector2.UP
+	elif direction.y > 0:
+		idle_dir = Vector2.DOWN
 
 
 func _unhandled_input(event):

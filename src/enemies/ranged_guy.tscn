@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://csd083n25xvrm"]
+
+[ext_resource type="PackedScene" uid="uid://b33ct127hnjpg" path="res://src/abstract_base_classes/enemy.tscn" id="1_7dk8x"]
+[ext_resource type="Texture2D" uid="uid://dqtecvihsbr1w" path="res://assets/png/enemy_ranged.png" id="2_aokhb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p51o4"]
+radius = 11.0
+height = 42.0
+
+[node name="ranged_guy" type="Node2D"]
+
+[node name="enemy" parent="." instance=ExtResource("1_7dk8x")]
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy"]
+texture = ExtResource("2_aokhb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+position = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_p51o4")
