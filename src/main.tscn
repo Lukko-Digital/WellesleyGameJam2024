@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://h4opngj3ywq"]
 
 [ext_resource type="PackedScene" uid="uid://tu268rhi3o1q" path="res://src/player/player.tscn" id="1_thqqx"]
-[ext_resource type="PackedScene" uid="uid://gkgcqo2tgi64" path="res://src/enemies/dasher.tscn" id="2_71rgm"]
 [ext_resource type="PackedScene" uid="uid://ds128noh7ia8o" path="res://src/display/game_camera.tscn" id="2_wd61b"]
+[ext_resource type="PackedScene" uid="uid://csd083n25xvrm" path="res://src/enemies/ranged_guy.tscn" id="3_afv0m"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fbgpi"]
 vertices = PackedVector2Array(575, 2, 569, 303, 4, 302, 6, 3)
@@ -29,5 +29,5 @@ position = Vector2(-568, -308)
 
 [node name="game_camera" parent="player" instance=ExtResource("2_wd61b")]
 
-[node name="dasher" parent="." instance=ExtResource("2_71rgm")]
-position = Vector2(-144, -134)
+[node name="ranged_guy" parent="." instance=ExtResource("3_afv0m")]
+position = Vector2(-303, -172)
