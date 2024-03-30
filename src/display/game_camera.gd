@@ -11,8 +11,10 @@ func _ready():
 
 
 func _process(_delta):
-	offset = default_offset
-	handle_shake()
+#	offset = default_offset
+#	handle_shake()
+	var mouse_pos = get_local_mouse_position()
+	offset = mouse_pos * 0.2
 
 
 func handle_shake():
