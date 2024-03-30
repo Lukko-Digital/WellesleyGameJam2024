@@ -4,7 +4,7 @@ extends CharacterBody2D
 const MAX_HEALTH = 5
 const SPEED = 300.0
 const BULLET = {
-	SPEED = 600,
+	SPEED = 1000,
 	FIELD_TIME = 8
 }
 
