@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rytuv"]
 size = Vector2(40, 40)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D"]
 script = ExtResource("1_8v8oq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
