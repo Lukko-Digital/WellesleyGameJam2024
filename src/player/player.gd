@@ -7,7 +7,7 @@ const BULLET = {
 	FIELD_TIME = 8
 }
 
-@onready var bullet_scene = preload("res://player/bullet.tscn")
+@onready var bullet_scene = preload("res://src/player/bullet.tscn")
 
 func _physics_process(delta):
 	var direction = Vector2(
