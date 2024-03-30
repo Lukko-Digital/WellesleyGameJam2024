@@ -1,4 +1,4 @@
-extends Sprite2D
+extends AnimatedSprite2D
 
 
 func _process(delta):
@@ -9,3 +9,7 @@ func _process(delta):
 		flip_v = true
 	else:
 		flip_v = false
+	
+	if dir.y < 0: # above
+		z_index = -1
+	else: z_index = 0

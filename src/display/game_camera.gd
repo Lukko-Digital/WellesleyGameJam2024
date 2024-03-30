@@ -11,14 +11,18 @@ func _ready():
 
 
 func _process(_delta):
-	offset = default_offset
-	handle_shake()
+	offset = mouse_offset() + shake_offset()
 
 
-func handle_shake():
+func mouse_offset():
+	var mouse_pos = get_local_mouse_position()
+	return mouse_pos * 0.2
+
+
+func shake_offset():
 	if not timer.is_stopped():
-		var shake_offset = Vector2(randf_range(-1, 1) * shake_amount, randf_range(-1, 1) * shake_amount)
-		offset += shake_offset
+		return Vector2(randf_range(-1, 1) * shake_amount, randf_range(-1, 1) * shake_amount)
+	return Vector2.ZERO
 
 
 func shake(duration: float, amount: float):

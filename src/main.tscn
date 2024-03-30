@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://tu268rhi3o1q" path="res://src/player/player.tscn" id="1_thqqx"]
 [ext_resource type="PackedScene" uid="uid://gkgcqo2tgi64" path="res://src/enemies/dasher.tscn" id="2_71rgm"]
-[ext_resource type="PackedScene" uid="uid://d2sv6qqgckxxa" path="res://src/display/game_camera.tscn" id="2_wd61b"]
+[ext_resource type="PackedScene" uid="uid://ds128noh7ia8o" path="res://src/display/game_camera.tscn" id="2_wd61b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fbgpi"]
 vertices = PackedVector2Array(1726, 3, 1720, 885, 0, 887, 6, 3)
@@ -14,10 +14,11 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 position = Vector2(683, 408)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -580.0
-offset_top = -326.0
-offset_right = 1147.0
-offset_bottom = 568.0
+z_index = -5
+offset_left = -653.0
+offset_top = -381.0
+offset_right = -77.0
+offset_bottom = -75.0
 mouse_filter = 2
 color = Color(1, 1, 1, 0.262745)
 
