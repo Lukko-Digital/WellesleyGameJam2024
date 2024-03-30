@@ -7,13 +7,17 @@ const BULLET = {
 	SPEED = 600,
 	FIELD_TIME = 8
 }
+const INVLN_TIME = 0.2
 
 @onready var bullet_scene = preload("res://src/player/bullet.tscn")
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var screen_color: ColorRect = $ui/ScreenColor
 @onready var gun: AnimatedSprite2D = $gun
+@onready var invuln_timer = $InvulnTimer
 
 @onready var health = MAX_HEALTH: set = _set_health
 var idle_dir: Vector2 = Vector2.DOWN
+var dead = false
 
 ## --- SETTERS ---
 
@@ -29,6 +33,7 @@ func _set_health(new_health):
 
 
 func _physics_process(delta):
+	if dead: return
 	var direction = handle_movement()
 	handle_animation(direction)
 	handle_attack()
@@ -97,19 +102,30 @@ func spawn_bullet():
 	instance.speed = BULLET.SPEED
 	get_parent().add_child(instance)
 
+
 ## --- TAKING DAMAGE ---
 
 
 func take_damage(damage: int):
-#	if !dash_timer.is_stopped(): return
+	if !invuln_timer.is_stopped() or dead: return
+	invuln_timer.start(INVLN_TIME)
 	health -= damage
 	if health <= 0: die()
 	
 	Global.camera.shake(0.18, 9)
 	var tween = create_tween()
-	$ui/ScreenColor.color = Color(Color.RED, 0.3)
-	tween.tween_property($ui/ScreenColor, "color", Color.TRANSPARENT, 0.3)
+	screen_color.color = Color(Color.RED, 0.3)
+	tween.tween_property(screen_color, "color", Color.TRANSPARENT, 0.3)
 
 
 func die():
+	dead = true
+	gun.hide()
+	sprite.play("die")
+	await sprite.animation_finished
+	
+	var tween = create_tween()
+	screen_color.color = Color(Color.BLACK, 0)
+	tween.tween_property(screen_color, "color", Color.BLACK, 1)
+	await tween.finished
 	get_tree().reload_current_scene()
