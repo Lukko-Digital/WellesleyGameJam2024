@@ -3,7 +3,8 @@ class_name Attack
 
 @export var DAMAGE: int
 var direction: Vector2
-var field_time = 0
+var speed: int = 0
+var field_time: int = 0
 
 signal hit(body)
 
@@ -12,6 +13,11 @@ func _ready():
 	if field_time:
 		await get_tree().create_timer(field_time).timeout
 		queue_free()
+
+
+func _physics_process(delta):
+	if speed:
+		position += direction * speed * delta
 
 
 func start(pos: Vector2, dir: Vector2):
