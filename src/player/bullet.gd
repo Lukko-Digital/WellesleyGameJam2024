@@ -8,3 +8,4 @@ func _on_body_entered(body):
 		500,
 		0.05
 	)
+	queue_free()
