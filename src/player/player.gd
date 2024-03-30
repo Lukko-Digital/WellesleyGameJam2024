@@ -105,7 +105,7 @@ func take_damage(damage: int):
 	health -= damage
 	if health <= 0: die()
 	
-	Global.camera.shake(0.2, 5)
+	Global.camera.shake(0.18, 9)
 	var tween = create_tween()
 	$ui/ScreenColor.color = Color(Color.RED, 0.3)
 	tween.tween_property($ui/ScreenColor, "color", Color.TRANSPARENT, 0.3)
