@@ -1,6 +1,6 @@
 extends Enemy
 
-const DASH_SPEED = 500
+const DASH_SPEED = 1000
 const Attack_Time = {
 	WINDUP = 0.7,
 	DURATION = 0.4,
