@@ -10,7 +10,7 @@ const BULLET = {
 
 @onready var bullet_scene = preload("res://src/player/bullet.tscn")
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var gun: Sprite2D = $gun
+@onready var gun: AnimatedSprite2D = $gun
 
 @onready var health = MAX_HEALTH: set = _set_health
 var idle_dir: Vector2 = Vector2.DOWN
@@ -35,7 +35,6 @@ func _physics_process(delta):
 	velocity = direction * SPEED
 	handle_animation(direction)
 	move_and_slide()
-	print(idle_dir)
 
 
 func handle_animation(direction: Vector2):
@@ -74,7 +73,7 @@ func attack():
 	var instance: Attack = bullet_scene.instantiate()
 	var dir = (get_global_mouse_position() - global_position).normalized()
 	instance.start(
-		position + dir * gun.offset.x,
+		position + dir * gun.offset.x + gun.position,
 		dir
 	)
 	instance.field_time = BULLET.FIELD_TIME
