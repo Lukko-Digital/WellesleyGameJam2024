@@ -18,9 +18,9 @@ const BULLET = {
 
 func _set_health(new_health):
 	health = clamp(new_health, 0, MAX_HEALTH)
-#	var hbox = $ui/ColorRect/HBoxContainer
-#	for i in hbox.get_child_count():
-#		hbox.get_child(i).visible = health > i
+	var hbox = $ui/ColorRect/HBoxContainer
+	for i in hbox.get_child_count():
+		hbox.get_child(i).visible = health > i
 
 
 ## --- CORE FUNCTIONS ---
@@ -62,9 +62,9 @@ func take_damage(damage: int):
 	if health <= 0: die()
 	
 #	Global.camera.shake(0.2, 5)
-#	var tween = create_tween()
-#	$ui/ScreenColor.color = Color(Color.RED, 0.3)
-#	tween.tween_property($ui/ScreenColor, "color", Color.TRANSPARENT, 0.3)
+	var tween = create_tween()
+	$ui/ScreenColor.color = Color(Color.RED, 0.3)
+	tween.tween_property($ui/ScreenColor, "color", Color.TRANSPARENT, 0.3)
 
 
 func die():

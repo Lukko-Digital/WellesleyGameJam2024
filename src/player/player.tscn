@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://tu268rhi3o1q"]
+[gd_scene load_steps=4 format=3 uid="uid://tu268rhi3o1q"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_8v8oq"]
+[ext_resource type="PackedScene" uid="uid://hhfchlxg4hc6" path="res://src/display/ui.tscn" id="2_2xssp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rytuv"]
 size = Vector2(40, 40)
@@ -19,3 +20,5 @@ color = Color(0, 0.196078, 0.556863, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rytuv")
+
+[node name="ui" parent="." instance=ExtResource("2_2xssp")]
