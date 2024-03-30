@@ -2,13 +2,14 @@ extends CharacterBody2D
 
 
 const MAX_HEALTH = 5
-const SPEED = 300.0
+const SPEED = 200.0
 const BULLET = {
 	SPEED = 600,
 	FIELD_TIME = 8
 }
 
 @onready var bullet_scene = preload("res://src/player/bullet.tscn")
+@onready var gun: Sprite2D = $gun
 
 @onready var health = MAX_HEALTH: set = _set_health
 
@@ -44,9 +45,10 @@ func _unhandled_input(event):
 
 func attack():
 	var instance: Attack = bullet_scene.instantiate()
+	var dir = (get_global_mouse_position() - global_position).normalized()
 	instance.start(
-		position,
-		(get_global_mouse_position() - global_position).normalized()
+		position + dir * gun.offset.x,
+		dir
 	)
 	instance.field_time = BULLET.FIELD_TIME
 	instance.speed = BULLET.SPEED

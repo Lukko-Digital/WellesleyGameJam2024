@@ -1,24 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://tu268rhi3o1q"]
+[gd_scene load_steps=6 format=3 uid="uid://tu268rhi3o1q"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_8v8oq"]
 [ext_resource type="PackedScene" uid="uid://hhfchlxg4hc6" path="res://src/display/ui.tscn" id="2_2xssp"]
+[ext_resource type="Texture2D" uid="uid://dnl6ymad87b7w" path="res://assets/png/player.png" id="2_vsqs0"]
+[ext_resource type="PackedScene" uid="uid://bd3lusegcrs72" path="res://src/player/gun.tscn" id="4_kjx4c"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rytuv"]
-size = Vector2(40, 40)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rgnxm"]
+radius = 5.0
+height = 36.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_8v8oq")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-color = Color(0, 0.196078, 0.556863, 1)
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_vsqs0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_rytuv")
+shape = SubResource("CapsuleShape2D_rgnxm")
 
 [node name="ui" parent="." instance=ExtResource("2_2xssp")]
+
+[node name="gun" parent="." instance=ExtResource("4_kjx4c")]

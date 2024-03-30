@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4dt13kdflfw8"]
+[gd_scene load_steps=6 format=3 uid="uid://c4dt13kdflfw8"]
 
 [ext_resource type="Script" path="res://choicesDialogue.gd" id="1_ncgfy"]
+[ext_resource type="FontFile" uid="uid://do5gw12h28bv4" path="res://assets/fonts/Early GameBoy.ttf" id="2_3x3vy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t70yp"]
 
@@ -8,7 +9,7 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oy5c3"]
 
-[node name="ChoicesDialogue" type="PanelContainer"]
+[node name="PlayerDialogue" type="PanelContainer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -35,6 +36,7 @@ layout_mode = 2
 
 [node name="ChoiceButton" type="Button" parent="MarginContainer/Choices"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3x3vy")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_t70yp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_o5g71")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_oy5c3")

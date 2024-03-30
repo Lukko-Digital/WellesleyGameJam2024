@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd3lusegcrs72"]
+
+[ext_resource type="Texture2D" uid="uid://cdckbr8b61xg" path="res://assets/png/player_gun.png" id="1_tgvas"]
+[ext_resource type="Script" path="res://src/player/gun.gd" id="2_gerwq"]
+
+[node name="gun" type="Sprite2D"]
+texture = ExtResource("1_tgvas")
+offset = Vector2(15, 0)
+script = ExtResource("2_gerwq")
