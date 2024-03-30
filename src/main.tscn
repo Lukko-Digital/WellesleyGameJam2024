@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://h4opngj3ywq"]
+[gd_scene load_steps=3 format=3 uid="uid://h4opngj3ywq"]
 
 [ext_resource type="PackedScene" uid="uid://tu268rhi3o1q" path="res://src/player/player.tscn" id="1_thqqx"]
+[ext_resource type="PackedScene" uid="uid://gkgcqo2tgi64" path="res://src/enemies/dasher.tscn" id="2_71rgm"]
 
 [node name="main" type="Node2D"]
 position = Vector2(683, 408)
@@ -13,6 +14,9 @@ offset_bottom = 568.0
 mouse_filter = 2
 color = Color(1, 1, 1, 0.262745)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_thqqx")]
+[node name="player" parent="." instance=ExtResource("1_thqqx")]
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="player"]
+
+[node name="dasher" parent="." instance=ExtResource("2_71rgm")]
+position = Vector2(706, 339)
