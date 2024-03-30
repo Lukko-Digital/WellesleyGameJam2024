@@ -7,10 +7,12 @@ const BULLET = {
 	SPEED = 600,
 	FIELD_TIME = 8
 }
+const INVLN_TIME = 0.2
 
 @onready var bullet_scene = preload("res://src/player/bullet.tscn")
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gun: AnimatedSprite2D = $gun
+@onready var invuln_timer = $InvulnTimer
 
 @onready var health = MAX_HEALTH: set = _set_health
 var idle_dir: Vector2 = Vector2.DOWN
@@ -101,7 +103,8 @@ func spawn_bullet():
 
 
 func take_damage(damage: int):
-#	if !dash_timer.is_stopped(): return
+	if !invuln_timer.is_stopped(): return
+	invuln_timer.start(INVLN_TIME)
 	health -= damage
 	if health <= 0: die()
 	

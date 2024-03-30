@@ -283,3 +283,6 @@ shape = SubResource("CapsuleShape2D_rgnxm")
 
 [node name="gun" parent="." instance=ExtResource("4_kjx4c")]
 position = Vector2(0, -8)
+
+[node name="InvulnTimer" type="Timer" parent="."]
+one_shot = true
