@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://csd083n25xvrm"]
+[gd_scene load_steps=12 format=3 uid="uid://csd083n25xvrm"]
 
 [ext_resource type="PackedScene" uid="uid://b33ct127hnjpg" path="res://src/abstract_base_classes/enemy.tscn" id="1_7dk8x"]
 [ext_resource type="Script" path="res://src/enemies/ranged_guy.gd" id="2_ilfx5"]
 [ext_resource type="Texture2D" uid="uid://bkbh4i5fs1cy8" path="res://assets/png/enemy_ranged-sheet.png" id="3_dsd7j"]
+[ext_resource type="PackedScene" uid="uid://cmcbsdghdl3tb" path="res://src/enemies/staff.tscn" id="4_yogfi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kcoah"]
 atlas = ExtResource("3_dsd7j")
@@ -65,6 +66,8 @@ SPEED = 80
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
 sprite_frames = SubResource("SpriteFrames_5xe8q")
 animation = &"idle"
+
+[node name="staff" parent="enemy" instance=ExtResource("4_yogfi")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
 position = Vector2(2, 3)

@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmcbsdghdl3tb"]
+
+[ext_resource type="Texture2D" uid="uid://cs67v3qgeogjj" path="res://assets/png/enemy_ranged_staff-sheet.png" id="1_ul4fe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deftu"]
+atlas = ExtResource("1_ul4fe")
+region = Rect2(53, 0, 53, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c33ch"]
+atlas = ExtResource("1_ul4fe")
+region = Rect2(106, 0, 53, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20oxg"]
+atlas = ExtResource("1_ul4fe")
+region = Rect2(159, 0, 53, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twnfx"]
+atlas = ExtResource("1_ul4fe")
+region = Rect2(212, 0, 53, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08qfn"]
+atlas = ExtResource("1_ul4fe")
+region = Rect2(265, 0, 53, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlabt"]
+atlas = ExtResource("1_ul4fe")
+region = Rect2(318, 0, 53, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1kfi"]
+atlas = ExtResource("1_ul4fe")
+region = Rect2(0, 0, 53, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jjukk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deftu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c33ch")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_20oxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twnfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08qfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlabt")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1kfi")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="staff" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_jjukk")
+animation = &"attack"
+offset = Vector2(19, 0)
