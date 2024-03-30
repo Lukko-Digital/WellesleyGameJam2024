@@ -88,7 +88,7 @@ func attack():
 
 func spawn_bullet():
 	var instance: Attack = bullet_scene.instantiate()
-	var dir = (get_global_mouse_position() - global_position).normalized()
+	var dir = (get_global_mouse_position() - gun.global_position).normalized()
 	instance.start(
 		position + dir * gun.offset.x + gun.position,
 		dir
