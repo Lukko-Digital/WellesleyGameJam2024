@@ -41,20 +41,16 @@ func handle_animation(direction: Vector2):
 	match direction.round():
 		Vector2.ZERO:
 			sprite.play("idle_front")
-		# RIGHT
-		Vector2.RIGHT, Vector2(1, 1):
+		# down diag and horizontal
+		Vector2.RIGHT, Vector2(1, 1), Vector2.LEFT, Vector2(-1, 1):
 			sprite.play("run_down_right")
-			sprite.flip_h = false
-		Vector2(1, -1):
+		# up diag
+		Vector2(1, -1), Vector2(-1, -1):
 			sprite.play("run_up_right")
-			sprite.flip_h = false
-		# LEFT
-		Vector2.LEFT, Vector2(-1, 1):
-			sprite.play("run_down_right")
-			sprite.flip_h = true
-		Vector2(-1, -1):
-			sprite.play("run_up_right")
-			sprite.flip_h = true
+	
+	if direction.x < 0:
+		sprite.flip_h = true
+	else: sprite.flip_h = false
 
 
 func _unhandled_input(event):
