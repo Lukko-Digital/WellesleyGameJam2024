@@ -5,10 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://ds128noh7ia8o" path="res://src/display/game_camera.tscn" id="2_wd61b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fbgpi"]
-vertices = PackedVector2Array(1726, 3, 1720, 885, 0, 887, 6, 3)
+vertices = PackedVector2Array(575, 2, 569, 303, 4, 302, 6, 3)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1726, 3, 1720, 885, 0, 887, 6, 3)])
-source_geometry_group_name = &"navigation_polygon_source_group"
+outlines = Array[PackedVector2Array]([PackedVector2Array(575, 2, 569, 303, 4, 302, 6, 3)])
 
 [node name="main" type="Node2D"]
 position = Vector2(683, 408)
@@ -26,8 +25,9 @@ color = Color(1, 1, 1, 0.262745)
 navigation_polygon = SubResource("NavigationPolygon_fbgpi")
 
 [node name="player" parent="." instance=ExtResource("1_thqqx")]
+position = Vector2(-568, -308)
 
 [node name="game_camera" parent="player" instance=ExtResource("2_wd61b")]
 
 [node name="dasher" parent="." instance=ExtResource("2_71rgm")]
-position = Vector2(706, 339)
+position = Vector2(-144, -134)
