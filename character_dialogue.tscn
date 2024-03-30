@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0vt5npypxwb"]
+
+[ext_resource type="Script" path="res://characterDialogue.gd" id="1_ua7ci"]
+[ext_resource type="FontFile" uid="uid://do5gw12h28bv4" path="res://assets/fonts/Early GameBoy.ttf" id="2_rtrrn"]
+
+[node name="CharacterDialogue" type="PanelContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.0
+offset_right = 290.0
+offset_bottom = 50.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ua7ci")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="CharacterText" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_rtrrn")
+
+[node name="TextTimer" type="Timer" parent="."]
+wait_time = 0.06
