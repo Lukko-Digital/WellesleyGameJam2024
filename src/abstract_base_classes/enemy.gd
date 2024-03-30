@@ -26,7 +26,9 @@ func _ready():
 
 
 func _physics_process(_delta):
-	if attacking:
+	if player.dead:
+		pass
+	elif attacking:
 		pass
 	elif check_attack_ray():
 		attacking = true
