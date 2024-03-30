@@ -47,5 +47,5 @@ sprite_frames = SubResource("SpriteFrames_n5j5k")
 animation = &"shoot"
 frame = 4
 frame_progress = 1.0
-offset = Vector2(15, 0)
+offset = Vector2(18, 0)
 script = ExtResource("2_gerwq")

@@ -10,12 +10,13 @@ class_name Enemy
 @onready var player: CharacterBody2D = get_tree().current_scene.get_node("player")
 
 ## Added in every instantiation of an enemy
-@onready var color_rect: ColorRect = $ColorRect
+#@onready var color_rect: ColorRect = $ColorRect
 @onready var attack_ray: RayCast2D = $AttackRay
 
-@onready var DEFAULT_COLOR: Color = color_rect.color
+#@onready var DEFAULT_COLOR: Color = color_rect.color
 @onready var health = MAX_HEALTH
 var attacking = false
+var direction_to_player: Vector2
 var knockback_vec: Vector2
 
 
@@ -31,8 +32,8 @@ func _physics_process(_delta):
 		attacking = true
 		attack()
 	else:
-		var direction = to_local(nav_agent.get_next_path_position()).normalized()
-		velocity = direction * SPEED
+		direction_to_player = to_local(nav_agent.get_next_path_position()).normalized()
+		velocity = direction_to_player * SPEED
 		if not knockback_timer.is_stopped():
 			velocity += knockback_vec
 		move_and_slide()
@@ -62,11 +63,11 @@ func take_damage(damage: int):
 	health -= damage
 	if health <= 0: die()
 	var blink = 0.05
-	for i in range(3):
-		color_rect.color = Color.WHITE
-		await get_tree().create_timer(blink).timeout
-		color_rect.color = DEFAULT_COLOR
-		await get_tree().create_timer(blink).timeout
+#	for i in range(3):
+#		color_rect.color = Color.WHITE
+#		await get_tree().create_timer(blink).timeout
+#		color_rect.color = DEFAULT_COLOR
+#		await get_tree().create_timer(blink).timeout
 
 
 func die():
