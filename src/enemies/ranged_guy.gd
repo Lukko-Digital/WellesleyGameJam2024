@@ -1,7 +1,7 @@
 extends Enemy
 
 const ATTACK = {
-	SPEED = 200,
+	SPEED = 100,
 	FIELD_TIME = 20
 }
 
@@ -26,15 +26,21 @@ func _physics_process(delta):
 func attack():
 	staff.play("attack")
 	await staff.animation_finished
-	spawn_bullet()
+	attack_burst()
 	staff.play("endlag")
 	await staff.animation_finished
 	attacking = false
 
 
-func spawn_bullet():
+func attack_burst():
+	var ANGLE = 10
+	for i in range(-2, 3):
+		spawn_bullet(deg_to_rad(i * ANGLE))
+
+
+func spawn_bullet(angle: float):
 	var instance: Attack = attack_scene.instantiate()
-	var dir = (player.global_position - staff.global_position).normalized()
+	var dir = (player.global_position - staff.global_position).normalized().rotated(angle)
 	instance.start(
 		position + dir * staff.offset.x + staff.position,
 		dir
