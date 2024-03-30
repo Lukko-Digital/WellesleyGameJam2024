@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://gkgcqo2tgi64"]
+
+[ext_resource type="Script" path="res://src/enemies/dasher.gd" id="1_q5m6k"]
+[ext_resource type="PackedScene" uid="uid://b33ct127hnjpg" path="res://src/abstract_base_classes/enemy.tscn" id="1_v0j24"]
+[ext_resource type="Script" path="res://src/abstract_base_classes/attack.gd" id="3_oulo6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q5nso"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i8wt"]
+size = Vector2(22, 22)
+
+[node name="dasher" type="Node2D"]
+
+[node name="enemy" parent="." instance=ExtResource("1_v0j24")]
+script = ExtResource("1_q5m6k")
+SPEED = 100
+MAX_HEALTH = 2
+
+[node name="ColorRect" type="ColorRect" parent="enemy"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+shape = SubResource("CircleShape2D_q5nso")
+
+[node name="AttackRay" type="RayCast2D" parent="enemy"]
+target_position = Vector2(90, 0)
+collision_mask = 3
+
+[node name="AttackBox" type="Area2D" parent="enemy"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_oulo6")
+DAMAGE = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/AttackBox"]
+shape = SubResource("RectangleShape2D_8i8wt")
+
+[node name="DashTimer" type="Timer" parent="enemy"]
+one_shot = true
+
+[connection signal="hit" from="enemy/AttackBox" to="enemy" method="_on_attack_box_hit"]
