@@ -55,6 +55,10 @@ func handle_animation(direction: Vector2):
 		# up diag
 		Vector2(1, -1), Vector2(-1, -1):
 			sprite.play("run_up_right")
+		Vector2.DOWN:
+			sprite.play("run_down")
+		Vector2.UP:
+			sprite.play("run_up")
 	
 	if direction.x < 0:
 		sprite.flip_h = true
