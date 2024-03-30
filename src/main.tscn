@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://tu268rhi3o1q" path="res://src/player/player.tscn" id="1_thqqx"]
 [ext_resource type="PackedScene" uid="uid://gkgcqo2tgi64" path="res://src/enemies/dasher.tscn" id="2_71rgm"]
-[ext_resource type="PackedScene" uid="uid://ds128noh7ia8o" path="res://src/display/game_camera.tscn" id="2_wd61b"]
+[ext_resource type="PackedScene" uid="uid://d2sv6qqgckxxa" path="res://src/display/game_camera.tscn" id="2_wd61b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fbgpi"]
 vertices = PackedVector2Array(1721, 582, 1720, 885, 1148, 884, 1148, 582)
