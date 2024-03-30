@@ -16,6 +16,7 @@ class_name Enemy
 #@onready var DEFAULT_COLOR: Color = color_rect.color
 @onready var health = MAX_HEALTH
 var attacking = false
+var direction_to_player: Vector2
 var knockback_vec: Vector2
 
 
@@ -31,8 +32,8 @@ func _physics_process(_delta):
 		attacking = true
 		attack()
 	else:
-		var direction = to_local(nav_agent.get_next_path_position()).normalized()
-		velocity = direction * SPEED
+		direction_to_player = to_local(nav_agent.get_next_path_position()).normalized()
+		velocity = direction_to_player * SPEED
 		if not knockback_timer.is_stopped():
 			velocity += knockback_vec
 		move_and_slide()

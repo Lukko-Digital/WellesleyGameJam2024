@@ -9,7 +9,7 @@ func _physics_process(delta):
 		sprite.play("idle")
 	else:
 		sprite.play("walk")
-		if velocity.x < 0:
+		if direction_to_player.x < 0:
 			sprite.flip_h = true
 			staff.scale = Vector2(-1, 1)
 		else:

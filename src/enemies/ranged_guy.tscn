@@ -62,6 +62,7 @@ height = 42.0
 [node name="enemy" parent="." instance=ExtResource("1_7dk8x")]
 script = ExtResource("2_ilfx5")
 SPEED = 80
+MAX_HEALTH = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
 sprite_frames = SubResource("SpriteFrames_5xe8q")
