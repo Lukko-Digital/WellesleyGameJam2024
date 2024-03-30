@@ -29,12 +29,17 @@ func _set_health(new_health):
 
 
 func _physics_process(delta):
+	var direction = handle_movement()
+	handle_animation(direction)
+	handle_attack()
+
+func handle_movement():
 	var direction = Vector2(
 		Input.get_axis("left", "right"), Input.get_axis("up", "down")
 	).normalized()
 	velocity = direction * SPEED
-	handle_animation(direction)
 	move_and_slide()
+	return direction
 
 
 func handle_animation(direction: Vector2):
@@ -61,8 +66,8 @@ func handle_animation(direction: Vector2):
 		idle_dir = Vector2.DOWN
 
 
-func _unhandled_input(event):
-	if event.is_action_pressed("attack"):
+func handle_attack():
+	if Input.is_action_pressed("attack"):
 		attack()
 
 
@@ -70,6 +75,9 @@ func _unhandled_input(event):
 
 
 func attack():
+	if gun.is_playing():
+		return
+	gun.play("shoot")
 	var instance: Attack = bullet_scene.instantiate()
 	var dir = (get_global_mouse_position() - global_position).normalized()
 	instance.start(
