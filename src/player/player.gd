@@ -82,6 +82,11 @@ func attack():
 	if gun.is_playing():
 		return
 	gun.play("shoot")
+	Global.camera.shake(0.1, 4)
+	spawn_bullet()
+
+
+func spawn_bullet():
 	var instance: Attack = bullet_scene.instantiate()
 	var dir = (get_global_mouse_position() - global_position).normalized()
 	instance.start(
@@ -91,7 +96,6 @@ func attack():
 	instance.field_time = BULLET.FIELD_TIME
 	instance.speed = BULLET.SPEED
 	get_parent().add_child(instance)
-
 
 ## --- TAKING DAMAGE ---
 
