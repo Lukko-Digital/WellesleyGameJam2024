@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmcbsdghdl3tb"]
+[gd_scene load_steps=11 format=3 uid="uid://cmcbsdghdl3tb"]
 
 [ext_resource type="Texture2D" uid="uid://cs67v3qgeogjj" path="res://assets/png/enemy_ranged_staff-sheet.png" id="1_ul4fe"]
 
@@ -22,9 +22,13 @@ region = Rect2(212, 0, 53, 70)
 atlas = ExtResource("1_ul4fe")
 region = Rect2(265, 0, 53, 70)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mlabt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2d0r"]
 atlas = ExtResource("1_ul4fe")
 region = Rect2(318, 0, 53, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbh7a"]
+atlas = ExtResource("1_ul4fe")
+region = Rect2(0, 0, 53, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a1kfi"]
 atlas = ExtResource("1_ul4fe")
@@ -47,12 +51,20 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_08qfn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mlabt")
 }],
 "loop": false,
 "name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2d0r")
+}, {
+"duration": 9.0,
+"texture": SubResource("AtlasTexture_qbh7a")
+}],
+"loop": false,
+"name": &"endlag",
 "speed": 10.0
 }, {
 "frames": [{
@@ -66,5 +78,5 @@ animations = [{
 
 [node name="staff" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_jjukk")
-animation = &"attack"
+animation = &"idle"
 offset = Vector2(19, 0)

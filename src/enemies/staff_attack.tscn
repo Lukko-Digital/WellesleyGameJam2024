@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqthupvnqgo8j"]
+
+[ext_resource type="Script" path="res://src/abstract_base_classes/attack.gd" id="1_hpt00"]
+[ext_resource type="Texture2D" uid="uid://dgiqrwmw8hwb2" path="res://assets/png/enemy_ranged_bullet.png" id="2_curjc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_koj02"]
+radius = 6.0
+
+[node name="staff_attack" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_hpt00")
+DAMAGE = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_curjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_koj02")
