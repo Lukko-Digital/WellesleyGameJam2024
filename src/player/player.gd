@@ -138,7 +138,11 @@ func roll():
 
 
 func take_damage(damage: int):
-	if !invuln_timer.is_stopped() or dead: return
+	if (
+		!invuln_timer.is_stopped() or
+		rolling or
+		dead
+	): return
 	invuln_timer.start(INVLN_TIME)
 	health -= damage
 	if health <= 0: die()
