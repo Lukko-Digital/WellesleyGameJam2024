@@ -35,5 +35,7 @@ func disable():
 
 
 func _on_body_entered(body):
+	if body.get_collision_layer() == 1:
+		return
 	hit.emit(body)
 	body.take_damage(DAMAGE)
