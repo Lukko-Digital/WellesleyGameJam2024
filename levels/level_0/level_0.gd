@@ -20,7 +20,7 @@ func _ready():
 #	spawn_wave()
 #	await get_tree().create_timer(15).timeout
 #	spawn_wave()
-#	await get_tree().create_timer(15).timeout
+	await get_tree().create_timer(10).timeout
 	$map/Door.activate()
 
 
