@@ -31,4 +31,6 @@ func _ready():
 	await character_dialogue.TALKING
 	player_dialogue.display_choices_dialogue('OffWeGo', 0)
 	await player_dialogue.SELECTED
+	$ColorRect/AnimationPlayer.play("fade_to_black")
+	await $ColorRect/AnimationPlayer.animation_finished
 	get_tree().change_scene_to_file("res://levels/level_0/level_0.tscn")
