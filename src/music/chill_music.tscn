@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://bldu8adtl0nhl"]
+
+[node name="chill_music" type="AudioStreamPlayer"]
+autoplay = true

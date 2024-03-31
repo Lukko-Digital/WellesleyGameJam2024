@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d0al8xm7lo64i"]
+[gd_scene load_steps=18 format=3 uid="uid://d0al8xm7lo64i"]
 
 [ext_resource type="Script" path="res://src/anubis_scene/anubis_scene.gd" id="1_g62kf"]
 [ext_resource type="Texture2D" uid="uid://c5rsshcnhb6gl" path="res://assets/png/side_view_bg.png" id="2_ieiqx"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ddwoa0wudaq52" path="res://src/anubis_scene/sv_player.tscn" id="7_128fs"]
 [ext_resource type="Script" path="res://src/anubis_scene/earthDoor.gd" id="9_4h80h"]
 [ext_resource type="Texture2D" uid="uid://clcnfjpfbsgxu" path="res://assets/png/gate-big-Sheet.png" id="9_whsb4"]
+[ext_resource type="PackedScene" uid="uid://bldu8adtl0nhl" path="res://src/music/chill_music.tscn" id="10_vtjrn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfvhm"]
 size = Vector2(76, 184)
@@ -147,6 +148,8 @@ offset_bottom = 491.0
 libraries = {
 "": SubResource("AnimationLibrary_50i3n")
 }
+
+[node name="chill_music" parent="." instance=ExtResource("10_vtjrn")]
 
 [connection signal="SELECTED" from="PlayerDialogue" to="." method="_on_player_dialogue_selected"]
 [connection signal="area_entered" from="EarthDoor" to="EarthDoor" method="_on_area_entered"]
