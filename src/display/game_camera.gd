@@ -1,6 +1,8 @@
 extends Camera2D
 class_name GameCamera
 
+@export var immovable: bool = false
+
 var shake_amount
 
 @onready var timer: Timer = $ShakeTimer
@@ -15,6 +17,8 @@ func _process(_delta):
 
 
 func mouse_offset():
+	if immovable:
+		return Vector2()
 	var mouse_pos = get_local_mouse_position()
 	return mouse_pos * 0.2
 

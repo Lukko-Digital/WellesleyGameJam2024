@@ -1,0 +1,185 @@
+[gd_scene load_steps=20 format=3 uid="uid://dmvx3t7f0sgut"]
+
+[ext_resource type="Texture2D" uid="uid://dwqwaj5xx6k8g" path="res://assets/png/book-sheet.png" id="1_pt3b2"]
+[ext_resource type="Script" path="res://levels/book_scene.gd" id="1_ye6t8"]
+[ext_resource type="PackedScene" uid="uid://ds128noh7ia8o" path="res://src/display/game_camera.tscn" id="3_vycgl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ruia"]
+atlas = ExtResource("1_pt3b2")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olt2q"]
+atlas = ExtResource("1_pt3b2")
+region = Rect2(0, 360, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hvwy"]
+atlas = ExtResource("1_pt3b2")
+region = Rect2(640, 360, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwlfr"]
+atlas = ExtResource("1_pt3b2")
+region = Rect2(1280, 360, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1f6t"]
+atlas = ExtResource("1_pt3b2")
+region = Rect2(1920, 360, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5fk3"]
+atlas = ExtResource("1_pt3b2")
+region = Rect2(0, 720, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj240"]
+atlas = ExtResource("1_pt3b2")
+region = Rect2(640, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_un7bl"]
+atlas = ExtResource("1_pt3b2")
+region = Rect2(1280, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u8v8"]
+atlas = ExtResource("1_pt3b2")
+region = Rect2(1920, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72evr"]
+atlas = ExtResource("1_pt3b2")
+region = Rect2(640, 720, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tccp"]
+atlas = ExtResource("1_pt3b2")
+region = Rect2(1280, 720, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfcpe"]
+atlas = ExtResource("1_pt3b2")
+region = Rect2(1920, 720, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7pti"]
+atlas = ExtResource("1_pt3b2")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2xfte"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ruia")
+}],
+"loop": false,
+"name": &"cover",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olt2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hvwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwlfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1f6t")
+}, {
+"duration": 25.0,
+"texture": SubResource("AtlasTexture_y5fk3")
+}],
+"loop": false,
+"name": &"gun",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj240")
+}],
+"loop": false,
+"name": &"page1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_un7bl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u8v8")
+}],
+"loop": false,
+"name": &"page2",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72evr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tccp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfcpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7pti")
+}],
+"loop": false,
+"name": &"slam",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_8o136"]
+resource_name = "fade_from_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oai7j"]
+_data = {
+"fade_from_black": SubResource("Animation_8o136")
+}
+
+[node name="book_scene" type="Node2D"]
+script = ExtResource("1_ye6t8")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -67.0
+offset_top = -53.0
+offset_right = 706.0
+offset_bottom = 399.0
+color = Color(0, 0, 0, 1)
+
+[node name="book" type="AnimatedSprite2D" parent="."]
+position = Vector2(320, 180)
+sprite_frames = SubResource("SpriteFrames_2xfte")
+animation = &"gun"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+autoplay = "fade_from_black"
+libraries = {
+"": SubResource("AnimationLibrary_oai7j")
+}
+
+[node name="FlipCooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="game_camera" parent="." instance=ExtResource("3_vycgl")]
+position = Vector2(320, 180)
+immovable = true
+
+[connection signal="animation_finished" from="book" to="." method="_on_book_animation_finished"]
