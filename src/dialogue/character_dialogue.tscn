@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0vt5npypxwb"]
+
+[ext_resource type="Script" path="res://src/dialogue/characterDialogue.gd" id="1_ua7ci"]
+[ext_resource type="Texture2D" uid="uid://b8h6o5pfv1kp7" path="res://assets/png/dialogue_frame.png" id="2_png3k"]
+[ext_resource type="FontFile" uid="uid://do5gw12h28bv4" path="res://assets/fonts/Early GameBoy.ttf" id="2_rtrrn"]
+[ext_resource type="Texture2D" uid="uid://da4r8xcwpgaak" path="res://assets/png/portrait_anubis.png" id="4_0dkls"]
+
+[node name="CharacterDialogue" type="PanelContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.0
+offset_right = 290.0
+offset_bottom = 50.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ua7ci")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_png3k")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_right = 96
+theme_override_constants/margin_bottom = 16
+
+[node name="CharacterText" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/normal_font = ExtResource("2_rtrrn")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+fit_content = true
+
+[node name="TextTimer" type="Timer" parent="."]
+wait_time = 0.06
+
+[node name="PortraitAnubis" type="Sprite2D" parent="."]
+position = Vector2(80, 78)
+texture = ExtResource("4_0dkls")

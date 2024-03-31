@@ -1,10 +1,23 @@
 {
     "Anubis": [
-        "You are dead."
+        "You have [shake rate=8 level=10][color=#B53340]died[/color][/shake]",
+        "What? Thanks..."
     ],
     "AnubisResponse": [
-        "Yes",
-        "No",
-        "Nice nose ring!"
+        [
+            "What?",
+            "How?",
+            "Nice nose ring!"
+        ]
+    ],
+    "EarthDoor": [
+        [
+            "This door seems like it's locked."
+        ]
+    ],
+    "AfterlifeDoor": [
+        [
+            "Go to afterlife?"
+        ]
     ]
 }
