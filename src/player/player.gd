@@ -17,6 +17,7 @@ const INVLN_TIME = 0.2
 
 @onready var health = MAX_HEALTH: set = _set_health
 var idle_dir: Vector2 = Vector2.DOWN
+var rolling = false
 var dead = false
 
 ## --- SETTERS ---
@@ -48,6 +49,8 @@ func handle_movement():
 
 
 func handle_animation(direction: Vector2):
+	if rolling:
+		return
 	match direction.round():
 		Vector2.ZERO:
 			if idle_dir == Vector2.DOWN:
@@ -80,6 +83,11 @@ func handle_attack():
 		attack()
 
 
+func _unhandled_input(event):
+	if event.is_action_pressed("roll"):
+		roll()
+
+
 ## --- ACTION FUNCTIONS ---
 
 
@@ -101,6 +109,15 @@ func spawn_bullet():
 	instance.field_time = BULLET.FIELD_TIME
 	instance.speed = BULLET.SPEED
 	get_parent().add_child(instance)
+
+
+func roll():
+	if velocity == Vector2.ZERO:
+		return
+	rolling = true
+	sprite.play("dodge_down_right")
+	await sprite.animation_finished
+	rolling = false
 
 
 ## --- TAKING DAMAGE ---
