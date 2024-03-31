@@ -35,23 +35,25 @@ func _set_health(new_health):
 
 func _physics_process(delta):
 	if dead: return
-	var direction = handle_movement()
-	handle_animation(direction)
+	handle_movement()
+	handle_animation()
 	handle_attack()
+	move_and_slide()
+
 
 func handle_movement():
+	if rolling: return
 	var direction = Vector2(
 		Input.get_axis("left", "right"), Input.get_axis("up", "down")
 	).normalized()
 	velocity = direction * SPEED
-	move_and_slide()
-	return direction
 
 
-func handle_animation(direction: Vector2):
+func handle_animation():
 	if rolling:
 		return
-	match direction.round():
+	var direction = velocity.normalized().round()
+	match direction:
 		Vector2.ZERO:
 			if idle_dir == Vector2.DOWN:
 				sprite.play("idle_front")
