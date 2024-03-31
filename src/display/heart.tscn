@@ -1,7 +1,25 @@
-[gd_scene format=3 uid="uid://bno8be3nrywfa"]
+[gd_scene load_steps=4 format=3 uid="uid://bno8be3nrywfa"]
 
-[node name="heart" type="ColorRect"]
-custom_minimum_size = Vector2(24, 24)
-offset_right = 24.0
+[ext_resource type="Texture2D" uid="uid://hjm1ehi2ymdx" path="res://assets/png/health_full.png" id="1_nu0bs"]
+[ext_resource type="Script" path="res://src/display/heart.gd" id="1_t8lh0"]
+[ext_resource type="Texture2D" uid="uid://dx2oaxbsm7mp" path="res://assets/png/health_empty.png" id="2_muye3"]
+
+[node name="heart" type="Control"]
+custom_minimum_size = Vector2(30, 24)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_t8lh0")
+
+[node name="full" type="TextureRect" parent="."]
+offset_right = 30.0
 offset_bottom = 24.0
-color = Color(1, 0, 0, 1)
+texture = ExtResource("1_nu0bs")
+stretch_mode = 2
+
+[node name="empty" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 24.0
+texture = ExtResource("2_muye3")
+stretch_mode = 2

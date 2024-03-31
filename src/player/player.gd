@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const MAX_HEALTH = 5
+const MAX_HEALTH = 3
 const SPEED = 200.0
 const BULLET = {
 	SPEED = 600,
@@ -25,9 +25,10 @@ var dead = false
 
 func _set_health(new_health):
 	health = clamp(new_health, 0, MAX_HEALTH)
-	var hbox = $ui/ColorRect/HBoxContainer
+	var hbox = $ui/TextureRect/HBoxContainer
 	for i in hbox.get_child_count():
-		hbox.get_child(i).visible = health > i
+		if health <= i:
+			hbox.get_child(i).empty()
 
 
 ## --- CORE FUNCTIONS ---
