@@ -64,7 +64,7 @@ func knockback(dir: Vector2, strength: int, duration: float):
 func take_damage(damage: int):
 	health -= damage
 	if health <= 0: die()
-	var blink = 0.05
+#	var blink = 0.05
 #	for i in range(3):
 #		color_rect.color = Color.WHITE
 #		await get_tree().create_timer(blink).timeout
