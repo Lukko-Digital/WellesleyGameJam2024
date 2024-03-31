@@ -74,6 +74,14 @@ script = ExtResource("1_vqp0g")
 
 [node name="map" type="Node2D" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="map"]
+z_index = -10
+offset_left = -892.0
+offset_top = -592.0
+offset_right = 832.0
+offset_bottom = 620.0
+color = Color(0.996094, 0.921875, 0.746094, 1)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="map"]
 navigation_polygon = SubResource("NavigationPolygon_fsoec")
 
