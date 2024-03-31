@@ -47,6 +47,37 @@
 			"Sure..."
 		]
 	],
+	"NotInterested": [
+		"Not interested? I'm sure it's a cheap edition."
+	],
+	"Uhhh": [
+		[
+			"Uhhh",
+			"Yeah nothing special",
+			"There's a gun in my book."
+		]
+	],
+	"Anyways": [
+		"Well Anyways. Off to the underworld",
+		"If you're careful, you might be able to make it...",
+		"to the [shake rate=8 level=5][color=#ffd414]field of reeds[/color][/shake]"
+	],
+	"FieldOf": [
+		[
+			"What's that",
+			"Roll credits"
+		]
+	],
+	"Busy": [
+		"I'm quite busy, off you go",
+		"Exit to the right"
+	],
+	"OffWeGo": [
+		[
+			"Off we go",
+			"See ya"
+		]
+	],
 	"EarthDoor": [
 		[
 			"This door seems like it's locked."

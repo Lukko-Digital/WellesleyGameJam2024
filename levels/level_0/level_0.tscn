@@ -80,6 +80,7 @@ offset_left = -892.0
 offset_top = -592.0
 offset_right = 832.0
 offset_bottom = 620.0
+mouse_filter = 2
 color = Color(0.996094, 0.921875, 0.746094, 1)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="map"]

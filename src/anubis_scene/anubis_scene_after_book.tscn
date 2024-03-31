@@ -1,14 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://d0al8xm7lo64i"]
+[gd_scene load_steps=17 format=3 uid="uid://ccskobp4drq0y"]
 
-[ext_resource type="Script" path="res://src/anubis_scene/anubis_scene.gd" id="1_g62kf"]
-[ext_resource type="Texture2D" uid="uid://c5rsshcnhb6gl" path="res://assets/png/side_view_bg.png" id="2_ieiqx"]
-[ext_resource type="PackedScene" uid="uid://c4dt13kdflfw8" path="res://src/dialogue/choices_dialogue.tscn" id="2_y15ld"]
-[ext_resource type="PackedScene" uid="uid://d0vt5npypxwb" path="res://src/dialogue/character_dialogue.tscn" id="3_v1mfy"]
-[ext_resource type="Texture2D" uid="uid://cuk3wpbyb2xxe" path="res://assets/png/side_view_anubis.png" id="5_yyxuk"]
-[ext_resource type="Texture2D" uid="uid://bguyr7ixh5mgu" path="res://assets/png/side_view_table.png" id="6_xctuf"]
-[ext_resource type="PackedScene" uid="uid://ddwoa0wudaq52" path="res://src/anubis_scene/sv_player.tscn" id="7_128fs"]
-[ext_resource type="Script" path="res://src/anubis_scene/earthDoor.gd" id="9_4h80h"]
-[ext_resource type="Texture2D" uid="uid://clcnfjpfbsgxu" path="res://assets/png/gate-big-Sheet.png" id="9_whsb4"]
+[ext_resource type="Script" path="res://src/anubis_scene/anubis_scene_after_book.gd" id="1_xhld1"]
+[ext_resource type="Texture2D" uid="uid://c5rsshcnhb6gl" path="res://assets/png/side_view_bg.png" id="2_auks0"]
+[ext_resource type="PackedScene" uid="uid://c4dt13kdflfw8" path="res://src/dialogue/choices_dialogue.tscn" id="3_ka1pd"]
+[ext_resource type="PackedScene" uid="uid://d0vt5npypxwb" path="res://src/dialogue/character_dialogue.tscn" id="4_f57sg"]
+[ext_resource type="Texture2D" uid="uid://cuk3wpbyb2xxe" path="res://assets/png/side_view_anubis.png" id="5_r4hsk"]
+[ext_resource type="Texture2D" uid="uid://bguyr7ixh5mgu" path="res://assets/png/side_view_table.png" id="6_rnb8r"]
+[ext_resource type="PackedScene" uid="uid://ddwoa0wudaq52" path="res://src/anubis_scene/sv_player.tscn" id="7_7q0f6"]
+[ext_resource type="Script" path="res://src/anubis_scene/earthDoor.gd" id="8_nonb8"]
+[ext_resource type="Texture2D" uid="uid://clcnfjpfbsgxu" path="res://assets/png/gate-big-Sheet.png" id="9_5pje7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfvhm"]
 size = Vector2(76, 184)
@@ -47,14 +47,14 @@ _data = {
 }
 
 [node name="AnubisScene" type="Node2D"]
-script = ExtResource("1_g62kf")
+script = ExtResource("1_xhld1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 640.0
 offset_bottom = 360.0
-texture = ExtResource("2_ieiqx")
+texture = ExtResource("2_auks0")
 
-[node name="PlayerDialogue" parent="." instance=ExtResource("2_y15ld")]
+[node name="PlayerDialogue" parent="." instance=ExtResource("3_ka1pd")]
 visible = false
 anchors_preset = 0
 anchor_left = 0.0
@@ -70,7 +70,7 @@ grow_vertical = 1
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="CharacterDialogue" parent="." instance=ExtResource("3_v1mfy")]
+[node name="CharacterDialogue" parent="." instance=ExtResource("4_f57sg")]
 visible = false
 anchors_preset = 0
 anchor_left = 0.0
@@ -83,11 +83,11 @@ size_flags_vertical = 0
 
 [node name="SideViewAnubis" type="Sprite2D" parent="."]
 position = Vector2(320, 184)
-texture = ExtResource("5_yyxuk")
+texture = ExtResource("5_r4hsk")
 
 [node name="SideViewTable" type="Sprite2D" parent="."]
 position = Vector2(320, 240)
-texture = ExtResource("6_xctuf")
+texture = ExtResource("6_rnb8r")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -103,12 +103,12 @@ shape = SubResource("RectangleShape2D_xfvhm")
 position = Vector2(320, 308)
 shape = SubResource("RectangleShape2D_c8fmo")
 
-[node name="Player2" parent="." instance=ExtResource("7_128fs")]
+[node name="Player2" parent="." instance=ExtResource("7_7q0f6")]
 z_index = 5
 position = Vector2(319, 222)
 
 [node name="EarthDoor" type="Area2D" parent="."]
-script = ExtResource("9_4h80h")
+script = ExtResource("8_nonb8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EarthDoor"]
 position = Vector2(128, 208)
@@ -116,7 +116,7 @@ shape = SubResource("RectangleShape2D_g8odl")
 
 [node name="Sprite2D" type="Sprite2D" parent="EarthDoor"]
 position = Vector2(144, 209)
-texture = ExtResource("9_whsb4")
+texture = ExtResource("9_5pje7")
 hframes = 4
 
 [node name="AfterlifeDoor" type="Area2D" parent="."]
@@ -127,7 +127,7 @@ shape = SubResource("RectangleShape2D_bgysg")
 
 [node name="Sprite2D2" type="Sprite2D" parent="AfterlifeDoor"]
 position = Vector2(495, 209)
-texture = ExtResource("9_whsb4")
+texture = ExtResource("9_5pje7")
 hframes = 4
 
 [node name="Anubis" type="Area2D" parent="."]
