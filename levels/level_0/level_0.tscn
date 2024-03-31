@@ -74,6 +74,14 @@ script = ExtResource("1_vqp0g")
 
 [node name="map" type="Node2D" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="map"]
+z_index = -10
+offset_left = -892.0
+offset_top = -592.0
+offset_right = 832.0
+offset_bottom = 620.0
+color = Color(0.996094, 0.921875, 0.746094, 1)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="map"]
 navigation_polygon = SubResource("NavigationPolygon_fsoec")
 
@@ -109,6 +117,8 @@ z_index = 5
 texture = ExtResource("2_i5u6w")
 
 [node name="Door" type="Area2D" parent="map"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("3_bsv7l")
 
 [node name="DoorSprite" type="AnimatedSprite2D" parent="map/Door"]
@@ -127,3 +137,6 @@ position = Vector2(-2, 2)
 [node name="game_camera" parent="player" instance=ExtResource("4_7t7gk")]
 
 [node name="enemies" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="map/Door" to="map/Door" method="_on_body_entered"]
+[connection signal="body_exited" from="map/Door" to="map/Door" method="_on_body_exited"]

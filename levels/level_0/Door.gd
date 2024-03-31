@@ -1,11 +1,29 @@
 extends Area2D
 
+@onready var door_sprite: AnimatedSprite2D = $DoorSprite
 
-# Called when the node enters the scene tree for the first time.
+var active = false
+
 func _ready():
-	pass # Replace with function body.
+	door_sprite.play("default")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func activate():
+	active = true
+	door_sprite.play("blue")
+
+
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("attack") and active and (!get_overlapping_bodies().is_empty()):
+		pass
+		# !!!! TRANSITION SCENE HERE !!!!
+
+
+func _on_body_entered(body):
+	if active:
+		door_sprite.play("blue_close")
+
+
+func _on_body_exited(body):
+	if active:
+		door_sprite.play("blue")

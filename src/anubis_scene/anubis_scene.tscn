@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0al8xm7lo64i"]
+[gd_scene load_steps=14 format=3 uid="uid://d0al8xm7lo64i"]
 
 [ext_resource type="Script" path="res://src/anubis_scene/anubis_scene.gd" id="1_g62kf"]
 [ext_resource type="Texture2D" uid="uid://c5rsshcnhb6gl" path="res://assets/png/side_view_bg.png" id="2_ieiqx"]
@@ -6,8 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0vt5npypxwb" path="res://src/dialogue/character_dialogue.tscn" id="3_v1mfy"]
 [ext_resource type="Texture2D" uid="uid://cuk3wpbyb2xxe" path="res://assets/png/side_view_anubis.png" id="5_yyxuk"]
 [ext_resource type="Texture2D" uid="uid://bguyr7ixh5mgu" path="res://assets/png/side_view_table.png" id="6_xctuf"]
-[ext_resource type="Script" path="res://src/anubis_scene/player2.gd" id="7_8l4bi"]
-[ext_resource type="Texture2D" uid="uid://he7ho38x5ww" path="res://assets/png/side_view_player.png" id="8_e81h0"]
+[ext_resource type="PackedScene" uid="uid://ddwoa0wudaq52" path="res://src/anubis_scene/sv_player.tscn" id="7_128fs"]
 [ext_resource type="Script" path="res://src/anubis_scene/earthDoor.gd" id="9_4h80h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfvhm"]
@@ -15,10 +14,6 @@ size = Vector2(76, 184)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8fmo"]
 size = Vector2(640, 104)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vgjg"]
-radius = 16.0
-height = 64.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8odl"]
 size = Vector2(48, 96)
@@ -86,17 +81,7 @@ shape = SubResource("RectangleShape2D_xfvhm")
 position = Vector2(320, 308)
 shape = SubResource("RectangleShape2D_c8fmo")
 
-[node name="Player2" type="CharacterBody2D" parent="."]
-collision_layer = 15
-script = ExtResource("7_8l4bi")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player2"]
-position = Vector2(224, 224)
-texture = ExtResource("8_e81h0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
-position = Vector2(224, 224)
-shape = SubResource("CapsuleShape2D_5vgjg")
+[node name="Player2" parent="." instance=ExtResource("7_128fs")]
 
 [node name="EarthDoor" type="Area2D" parent="."]
 script = ExtResource("9_4h80h")

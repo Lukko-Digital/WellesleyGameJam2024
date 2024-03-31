@@ -25,7 +25,7 @@ func slam():
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("right") or event.is_action_pressed("interact"):
+	if event.is_action_pressed("right") or event.is_action_pressed("attack"):
 		flip_page()
 
 

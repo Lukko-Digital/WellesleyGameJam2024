@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddwoa0wudaq52"]
+
+[ext_resource type="Script" path="res://src/anubis_scene/player2.gd" id="1_dssc2"]
+[ext_resource type="Texture2D" uid="uid://he7ho38x5ww" path="res://assets/png/side_view_player.png" id="2_2ptqr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vgjg"]
+radius = 16.0
+height = 64.0
+
+[node name="Player2" type="CharacterBody2D"]
+collision_layer = 15
+script = ExtResource("1_dssc2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(224, 224)
+texture = ExtResource("2_2ptqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(224, 224)
+shape = SubResource("CapsuleShape2D_5vgjg")
