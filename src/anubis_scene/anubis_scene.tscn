@@ -82,6 +82,7 @@ position = Vector2(320, 308)
 shape = SubResource("RectangleShape2D_c8fmo")
 
 [node name="Player2" parent="." instance=ExtResource("7_128fs")]
+position = Vector2(210, 222)
 
 [node name="EarthDoor" type="Area2D" parent="."]
 script = ExtResource("9_4h80h")
