@@ -7,4 +7,4 @@ func _ready():
 	await anim.animation_finished
 	anim.play("fade_tutorial")
 	await anim.animation_finished
-	# !!!! TRANSITION HERE !!!!
+	get_tree().change_scene_to_file("res://src/anubis_scene/anubis_scene.tscn")
