@@ -151,6 +151,7 @@ offset_left = -67.0
 offset_top = -53.0
 offset_right = 706.0
 offset_bottom = 399.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="book" type="AnimatedSprite2D" parent="."]
@@ -166,6 +167,7 @@ offset_right = 640.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
