@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://dmvx3t7f0sgut"]
 
 [ext_resource type="Texture2D" uid="uid://dwqwaj5xx6k8g" path="res://assets/png/book-sheet.png" id="1_pt3b2"]
-[ext_resource type="Script" path="res://levels/book_scene.gd" id="1_ye6t8"]
+[ext_resource type="Script" path="res://levels/book_scene/book_scene.gd" id="1_ye6t8"]
 [ext_resource type="PackedScene" uid="uid://ds128noh7ia8o" path="res://src/display/game_camera.tscn" id="3_vycgl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ruia"]
