@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://bldu8adtl0nhl"]
+[gd_scene load_steps=2 format=3 uid="uid://bldu8adtl0nhl"]
+
+[ext_resource type="AudioStream" uid="uid://ijld1kmk3r3a" path="res://assets/music/chill.mp3" id="1_irxbd"]
 
 [node name="chill_music" type="AudioStreamPlayer"]
+stream = ExtResource("1_irxbd")
 autoplay = true
