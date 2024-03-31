@@ -104,6 +104,7 @@ position = Vector2(320, 308)
 shape = SubResource("RectangleShape2D_c8fmo")
 
 [node name="Player2" parent="." instance=ExtResource("7_7q0f6")]
+z_index = 5
 position = Vector2(319, 222)
 
 [node name="EarthDoor" type="Area2D" parent="."]
