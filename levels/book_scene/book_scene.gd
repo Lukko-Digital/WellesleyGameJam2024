@@ -26,6 +26,8 @@ func slam():
 	$BookSlam.play()
 	Global.camera.shake(0.1, 9)
 	book.play("slam")
+	await get_tree().create_timer(0.2).timeout
+	get_tree().change_scene_to_file("res://src/anubis_scene/anubis_scene_after_book.tscn")
 
 
 func _unhandled_input(event):
