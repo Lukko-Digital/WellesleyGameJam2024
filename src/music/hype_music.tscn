@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://b0hi4fmptdds2"]
+[gd_scene load_steps=2 format=3 uid="uid://fhv6oahokw48"]
+
+[ext_resource type="AudioStream" uid="uid://besdyha7g12gx" path="res://assets/music/anubis_gamejam_hype1.wav" id="1_mym0a"]
 
 [node name="hype_music" type="AudioStreamPlayer"]
+stream = ExtResource("1_mym0a")
+volume_db = -18.087
+autoplay = true

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d2sv6qqgckxxa" path="res://src/display/game_camera.tscn" id="3_vycgl"]
 [ext_resource type="AudioStream" uid="uid://pjo5e0ogya2k" path="res://assets/sfx/bookslam.mp3" id="4_v2mpu"]
 [ext_resource type="AudioStream" uid="uid://thmeecik857a" path="res://assets/sfx/turnpage.mp3" id="5_lmrqg"]
-[ext_resource type="AudioStream" uid="uid://cftl1hmoafvsv" path="res://assets/sfx/guitarriff.mp3" id="6_p1rcn"]
+[ext_resource type="AudioStream" uid="uid://besdyha7g12gx" path="res://assets/music/anubis_gamejam_hype1.wav" id="6_b47v7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ruia"]
 atlas = ExtResource("1_pt3b2")
@@ -194,6 +194,7 @@ stream = ExtResource("4_v2mpu")
 stream = ExtResource("5_lmrqg")
 
 [node name="GuitarRiff" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_p1rcn")
+stream = ExtResource("6_b47v7")
+volume_db = -12.058
 
 [connection signal="animation_finished" from="book" to="." method="_on_book_animation_finished"]

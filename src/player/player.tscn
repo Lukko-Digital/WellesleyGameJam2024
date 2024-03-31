@@ -596,4 +596,4 @@ one_shot = true
 
 [node name="Gunshot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_7yg3p")
-volume_db = -10.551
+volume_db = -18.841
