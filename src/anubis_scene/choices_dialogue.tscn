@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4dt13kdflfw8"]
 
-[ext_resource type="Script" path="res://choicesDialogue.gd" id="1_ncgfy"]
+[ext_resource type="Script" path="res://src/anubis_scene/choicesDialogue.gd" id="1_ncgfy"]
 [ext_resource type="FontFile" uid="uid://do5gw12h28bv4" path="res://assets/fonts/Early GameBoy.ttf" id="2_3x3vy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t70yp"]

@@ -1,0 +1,122 @@
+[gd_scene load_steps=16 format=3 uid="uid://d0al8xm7lo64i"]
+
+[ext_resource type="Script" path="res://src/anubis_scene/anubis_scene.gd" id="1_g62kf"]
+[ext_resource type="Texture2D" uid="uid://c5rsshcnhb6gl" path="res://assets/png/side_view_bg.png" id="2_ieiqx"]
+[ext_resource type="PackedScene" uid="uid://c4dt13kdflfw8" path="res://src/dialogue/choices_dialogue.tscn" id="2_y15ld"]
+[ext_resource type="PackedScene" uid="uid://d0vt5npypxwb" path="res://src/dialogue/character_dialogue.tscn" id="3_v1mfy"]
+[ext_resource type="Texture2D" uid="uid://cuk3wpbyb2xxe" path="res://assets/png/side_view_anubis.png" id="5_yyxuk"]
+[ext_resource type="Texture2D" uid="uid://bguyr7ixh5mgu" path="res://assets/png/side_view_table.png" id="6_xctuf"]
+[ext_resource type="Script" path="res://src/anubis_scene/player2.gd" id="7_8l4bi"]
+[ext_resource type="Texture2D" uid="uid://he7ho38x5ww" path="res://assets/png/side_view_player.png" id="8_e81h0"]
+[ext_resource type="Script" path="res://src/anubis_scene/earthDoor.gd" id="9_4h80h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfvhm"]
+size = Vector2(76, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8fmo"]
+size = Vector2(640, 104)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vgjg"]
+radius = 16.0
+height = 64.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8odl"]
+size = Vector2(48, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgysg"]
+size = Vector2(48, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cf6ul"]
+size = Vector2(64, 144)
+
+[node name="AnubisScene" type="Node2D"]
+script = ExtResource("1_g62kf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_ieiqx")
+
+[node name="PlayerDialogue" parent="." instance=ExtResource("2_y15ld")]
+visible = false
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 261.0
+offset_right = 640.0
+offset_bottom = 359.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="CharacterDialogue" parent="." instance=ExtResource("3_v1mfy")]
+visible = false
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_right = 640.0
+offset_bottom = 98.0
+grow_horizontal = 1
+size_flags_vertical = 0
+
+[node name="SideViewAnubis" type="Sprite2D" parent="."]
+position = Vector2(320, 184)
+texture = ExtResource("5_yyxuk")
+
+[node name="SideViewTable" type="Sprite2D" parent="."]
+position = Vector2(320, 240)
+texture = ExtResource("6_xctuf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="RightWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(602, 164)
+shape = SubResource("RectangleShape2D_xfvhm")
+
+[node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(36, 164)
+shape = SubResource("RectangleShape2D_xfvhm")
+
+[node name="Floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(320, 308)
+shape = SubResource("RectangleShape2D_c8fmo")
+
+[node name="Player2" type="CharacterBody2D" parent="."]
+collision_layer = 15
+script = ExtResource("7_8l4bi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2"]
+position = Vector2(224, 224)
+texture = ExtResource("8_e81h0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
+position = Vector2(224, 224)
+shape = SubResource("CapsuleShape2D_5vgjg")
+
+[node name="EarthDoor" type="Area2D" parent="."]
+script = ExtResource("9_4h80h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthDoor"]
+position = Vector2(128, 208)
+shape = SubResource("RectangleShape2D_g8odl")
+
+[node name="AfterlifeDoor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AfterlifeDoor"]
+position = Vector2(512, 208)
+shape = SubResource("RectangleShape2D_bgysg")
+
+[node name="Anubis" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Anubis"]
+position = Vector2(320, 184)
+shape = SubResource("RectangleShape2D_cf6ul")
+
+[connection signal="SELECTED" from="PlayerDialogue" to="." method="_on_player_dialogue_selected"]
+[connection signal="area_entered" from="EarthDoor" to="EarthDoor" method="_on_area_entered"]
+[connection signal="area_exited" from="EarthDoor" to="EarthDoor" method="_on_area_exited"]
