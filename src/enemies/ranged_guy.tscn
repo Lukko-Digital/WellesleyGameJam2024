@@ -82,12 +82,12 @@ height = 48.0
 [node name="enemy" parent="." instance=ExtResource("1_7dk8x")]
 script = ExtResource("2_ilfx5")
 SPEED = 80
-MAX_HEALTH = 20
+MAX_HEALTH = 6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
 sprite_frames = SubResource("SpriteFrames_5xe8q")
 animation = &"walk"
-frame_progress = 0.827339
+frame_progress = 0.990423
 
 [node name="staff" parent="enemy" instance=ExtResource("4_yogfi")]
 animation = &"attack"
