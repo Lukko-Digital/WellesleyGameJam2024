@@ -1,23 +1,54 @@
 {
-    "Anubis": [
-        "You have [shake rate=8 level=10][color=#B53340]died[/color][/shake]",
-        "What? Thanks..."
-    ],
-    "AnubisResponse": [
-        [
-            "What?",
-            "How?",
-            "Nice nose ring!"
-        ]
-    ],
-    "EarthDoor": [
-        [
-            "This door seems like it's locked."
-        ]
-    ],
-    "AfterlifeDoor": [
-        [
-            "Go to afterlife?"
-        ]
-    ]
+	"Anubis": [
+		"You have [shake rate=8 level=10][color=#B53340]died[/color][/shake]",
+		"What? Thanks..."
+	],
+	"AnubisResponse": [
+		[
+			"What?",
+			"How?",
+			"Nice nose ring!"
+		]
+	],
+	"IntoTheDetails": [
+		"I won't get into the details...",
+		"Your family didn't leave you a lot"
+	],
+	"NotSurprised": [
+		[
+			"I'm not surprised",
+			"I never loved them anyway"
+		]
+	],
+	"Book": [
+		"But at least they left you a Book of the Dead"
+	],
+	"WhatBook": [
+		[
+			"What's that?",
+			"Huh?"
+		]
+	],
+	"BookExplanation": [
+		"It contains spells you can use to survive the underworld"
+	],
+	"Creepy": [
+		[
+			"Creepy",
+			"I guess that's neat"
+		]
+	],
+	"Look": [
+		"Have a look"
+	],
+	"EarthDoor": [
+		[
+			"This door seems like it's locked."
+		]
+	],
+	"AfterlifeDoor": [
+		[
+			"Go to afterlife?"
+		]
+	]
 }
