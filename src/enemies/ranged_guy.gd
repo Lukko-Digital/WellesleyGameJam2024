@@ -29,6 +29,7 @@ func attack():
 	staff.play("attack")
 	await staff.animation_finished
 	attack_burst()
+	$"../enemyattack".play()
 	staff.play("endlag")
 	await staff.animation_finished
 	attacking = false

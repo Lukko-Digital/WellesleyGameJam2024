@@ -14,12 +14,16 @@ func _ready():
 func flip_page():
 	if !flip_cd.is_stopped() or book.is_playing() or current_anim >= 3:
 		return
+	if current_anim == 2:
+		$GuitarRiff.play()
+	$TurnPage.play()
 	flip_cd.start()
 	current_anim += 1
 	book.play(anim_order[current_anim])
 
 
 func slam():
+	$BookSlam.play()
 	Global.camera.shake(0.1, 9)
 	book.play("slam")
 

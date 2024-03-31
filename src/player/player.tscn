@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://tu268rhi3o1q"]
+[gd_scene load_steps=82 format=3 uid="uid://tu268rhi3o1q"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_8v8oq"]
 [ext_resource type="PackedScene" uid="uid://hhfchlxg4hc6" path="res://src/display/ui.tscn" id="2_2xssp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bqub5t7eckkj8" path="res://assets/png/player-sheet.png" id="2_xdykf"]
 [ext_resource type="Texture2D" uid="uid://dnm5morqxl4v4" path="res://assets/png/player_dodge-sheet.png" id="3_aao5e"]
 [ext_resource type="PackedScene" uid="uid://bd3lusegcrs72" path="res://src/player/gun.tscn" id="4_kjx4c"]
+[ext_resource type="AudioStream" uid="uid://djkd07ttb5wy0" path="res://assets/sfx/gunshot.mp3" id="7_7yg3p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r6qf1"]
 atlas = ExtResource("2_bdhs3")
@@ -592,3 +593,6 @@ position = Vector2(0, -8)
 
 [node name="InvulnTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Gunshot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_7yg3p")

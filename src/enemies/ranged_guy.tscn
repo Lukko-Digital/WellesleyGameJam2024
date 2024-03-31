@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://csd083n25xvrm"]
+[gd_scene load_steps=16 format=3 uid="uid://fvdv42c6a8xy"]
 
 [ext_resource type="PackedScene" uid="uid://b33ct127hnjpg" path="res://src/abstract_base_classes/enemy.tscn" id="1_7dk8x"]
 [ext_resource type="Script" path="res://src/enemies/ranged_guy.gd" id="2_ilfx5"]
 [ext_resource type="Texture2D" uid="uid://wq8e7fepmk7d" path="res://assets/png/enemy_ranged_hurt-sheet.png" id="3_c2ssc"]
 [ext_resource type="Texture2D" uid="uid://bkbh4i5fs1cy8" path="res://assets/png/enemy_ranged-sheet.png" id="3_dsd7j"]
-[ext_resource type="PackedScene" uid="uid://cmcbsdghdl3tb" path="res://src/enemies/staff.tscn" id="4_yogfi"]
+[ext_resource type="PackedScene" path="res://src/enemies/staff.tscn" id="4_yogfi"]
+[ext_resource type="AudioStream" uid="uid://on26ntb2dymk" path="res://assets/sfx/enemyattack.mp3" id="6_yxan7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xon0"]
 atlas = ExtResource("3_c2ssc")
@@ -99,3 +100,6 @@ shape = SubResource("CapsuleShape2D_p51o4")
 [node name="AttackRay" type="RayCast2D" parent="enemy"]
 target_position = Vector2(250, 0)
 collision_mask = 3
+
+[node name="enemyattack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_yxan7")

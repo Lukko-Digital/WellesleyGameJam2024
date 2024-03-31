@@ -101,6 +101,7 @@ func _unhandled_input(event):
 func attack():
 	if gun.is_playing():
 		return
+	$Gunshot.play()
 	gun.play("shoot")
 	Global.camera.shake(0.1, 4)
 	spawn_bullet()

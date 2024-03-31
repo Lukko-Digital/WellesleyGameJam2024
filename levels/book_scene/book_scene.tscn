@@ -1,8 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmvx3t7f0sgut"]
+[gd_scene load_steps=23 format=3 uid="uid://dmvx3t7f0sgut"]
 
 [ext_resource type="Texture2D" uid="uid://dwqwaj5xx6k8g" path="res://assets/png/book-sheet.png" id="1_pt3b2"]
 [ext_resource type="Script" path="res://levels/book_scene/book_scene.gd" id="1_ye6t8"]
-[ext_resource type="PackedScene" uid="uid://ds128noh7ia8o" path="res://src/display/game_camera.tscn" id="3_vycgl"]
+[ext_resource type="PackedScene" uid="uid://d2sv6qqgckxxa" path="res://src/display/game_camera.tscn" id="3_vycgl"]
+[ext_resource type="AudioStream" uid="uid://pjo5e0ogya2k" path="res://assets/sfx/bookslam.mp3" id="4_v2mpu"]
+[ext_resource type="AudioStream" uid="uid://thmeecik857a" path="res://assets/sfx/turnpage.mp3" id="5_lmrqg"]
+[ext_resource type="AudioStream" uid="uid://cftl1hmoafvsv" path="res://assets/sfx/guitarriff.mp3" id="6_p1rcn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ruia"]
 atlas = ExtResource("1_pt3b2")
@@ -168,7 +171,7 @@ offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.1)
+color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
 autoplay = "fade_from_black"
@@ -183,5 +186,14 @@ one_shot = true
 [node name="game_camera" parent="." instance=ExtResource("3_vycgl")]
 position = Vector2(320, 180)
 immovable = true
+
+[node name="BookSlam" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_v2mpu")
+
+[node name="TurnPage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lmrqg")
+
+[node name="GuitarRiff" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_p1rcn")
 
 [connection signal="animation_finished" from="book" to="." method="_on_book_animation_finished"]
