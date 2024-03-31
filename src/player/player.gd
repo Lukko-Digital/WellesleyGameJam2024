@@ -17,6 +17,7 @@ const INVLN_TIME = 0.2
 
 @onready var health = MAX_HEALTH: set = _set_health
 var idle_dir: Vector2 = Vector2.DOWN
+var rolling = false
 var dead = false
 
 ## --- SETTERS ---
@@ -34,21 +35,29 @@ func _set_health(new_health):
 
 func _physics_process(delta):
 	if dead: return
-	var direction = handle_movement()
-	handle_animation(direction)
+	handle_movement()
+	handle_animation()
 	handle_attack()
+	move_and_slide()
+
 
 func handle_movement():
+	if rolling:
+		if sprite.frame != 4:
+			return
+		velocity *= 0.9
+		return
 	var direction = Vector2(
 		Input.get_axis("left", "right"), Input.get_axis("up", "down")
 	).normalized()
 	velocity = direction * SPEED
-	move_and_slide()
-	return direction
 
 
-func handle_animation(direction: Vector2):
-	match direction.round():
+func handle_animation():
+	if rolling:
+		return
+	var direction = velocity.normalized().round()
+	match direction:
 		Vector2.ZERO:
 			if idle_dir == Vector2.DOWN:
 				sprite.play("idle_front")
@@ -80,6 +89,11 @@ func handle_attack():
 		attack()
 
 
+func _unhandled_input(event):
+	if event.is_action_pressed("roll"):
+		roll()
+
+
 ## --- ACTION FUNCTIONS ---
 
 
@@ -103,11 +117,36 @@ func spawn_bullet():
 	get_parent().add_child(instance)
 
 
+func roll():
+	if velocity == Vector2.ZERO:
+		return
+	rolling = true
+	
+	match velocity.normalized().round():
+		# down diag and horizontal
+		Vector2.RIGHT, Vector2(1, 1), Vector2.LEFT, Vector2(-1, 1):
+			sprite.play("dodge_down_right")
+		# up diag
+		Vector2(1, -1), Vector2(-1, -1):
+			sprite.play("dodge_up_right")
+		Vector2.DOWN:
+			sprite.play("dodge_down")
+		Vector2.UP:
+			sprite.play("dodge_up")
+	
+	await sprite.animation_finished
+	rolling = false
+
+
 ## --- TAKING DAMAGE ---
 
 
 func take_damage(damage: int):
-	if !invuln_timer.is_stopped() or dead: return
+	if (
+		!invuln_timer.is_stopped() or
+		rolling or
+		dead
+	): return
 	invuln_timer.start(INVLN_TIME)
 	health -= damage
 	if health <= 0: die()
