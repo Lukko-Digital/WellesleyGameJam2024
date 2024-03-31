@@ -103,3 +103,4 @@ collision_mask = 3
 
 [node name="enemyattack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_yxan7")
+volume_db = -22.608
