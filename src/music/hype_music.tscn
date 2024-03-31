@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b0hi4fmptdds2"]
+
+[node name="hype_music" type="AudioStreamPlayer"]
