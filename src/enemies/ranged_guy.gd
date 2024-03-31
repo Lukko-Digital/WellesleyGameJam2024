@@ -11,7 +11,9 @@ const ATTACK = {
 
 func _physics_process(delta):
 	super(delta)
-	if attacking:
+	if sprite.animation == "hit" and sprite.is_playing():
+		return
+	elif attacking:
 		sprite.play("idle")
 	else:
 		sprite.play("walk")
@@ -48,3 +50,9 @@ func spawn_bullet(angle: float):
 	instance.field_time = ATTACK.FIELD_TIME
 	instance.speed = ATTACK.SPEED
 	get_parent().add_child(instance)
+
+
+func take_damage(damage: int):
+	super(damage)
+	sprite.stop()
+	sprite.play("hit")
