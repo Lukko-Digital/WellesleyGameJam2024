@@ -115,7 +115,19 @@ func roll():
 	if velocity == Vector2.ZERO:
 		return
 	rolling = true
-	sprite.play("dodge_down_right")
+	
+	match velocity.normalized().round():
+		# down diag and horizontal
+		Vector2.RIGHT, Vector2(1, 1), Vector2.LEFT, Vector2(-1, 1):
+			sprite.play("dodge_down_right")
+		# up diag
+		Vector2(1, -1), Vector2(-1, -1):
+			sprite.play("dodge_up_right")
+		Vector2.DOWN:
+			sprite.play("dodge_down")
+		Vector2.UP:
+			sprite.play("dodge_up")
+	
 	await sprite.animation_finished
 	rolling = false
 
