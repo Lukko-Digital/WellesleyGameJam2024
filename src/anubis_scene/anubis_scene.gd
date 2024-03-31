@@ -42,6 +42,9 @@ func anubis_line1():
 	await player_dialogue.SELECTED
 	character_dialogue.display_character_dialogue('Look', 0)
 	await character_dialogue.TALKING
+	player_dialogue.display_choices_dialogue('Okay', 0)
+	await player_dialogue.SELECTED
+	get_tree().change_scene_to_file("res://levels/book_scene/book_scene.tscn")
 #	if last_choice == 2:
 #		character_dialogue.display_character_dialogue('Anubis', 1)
 #		await character_dialogue.TALKING

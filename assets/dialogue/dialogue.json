@@ -41,6 +41,12 @@
 	"Look": [
 		"Have a look"
 	],
+	"Okay": [
+		[
+			"Okie Dokie",
+			"Sure..."
+		]
+	],
 	"EarthDoor": [
 		[
 			"This door seems like it's locked."
