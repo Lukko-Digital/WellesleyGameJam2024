@@ -53,13 +53,14 @@
 	"Uhhh": [
 		[
 			"Uhhh",
-			"Yeah not that neat"
+			"Yeah nothing special",
+			"There's a gun in my book."
 		]
 	],
 	"Anyways": [
 		"Well Anyways. Off to the underworld",
 		"If you're careful, you might be able to make it...",
-		"to the FIELD OF REEDS"
+		"to the [shake rate=8 level=5][color=#ffd414]field of reeds[/color][/shake]"
 	],
 	"FieldOf": [
 		[
