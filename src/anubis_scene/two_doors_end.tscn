@@ -1,0 +1,143 @@
+[gd_scene load_steps=15 format=3 uid="uid://byfr7aanwql0e"]
+
+[ext_resource type="Script" path="res://src/anubis_scene/two_doors_end.gd" id="1_u42al"]
+[ext_resource type="Texture2D" uid="uid://c5rsshcnhb6gl" path="res://assets/png/side_view_bg.png" id="2_77aex"]
+[ext_resource type="PackedScene" uid="uid://c4dt13kdflfw8" path="res://src/dialogue/choices_dialogue.tscn" id="3_jbocb"]
+[ext_resource type="PackedScene" uid="uid://d0vt5npypxwb" path="res://src/dialogue/character_dialogue.tscn" id="4_pmm8b"]
+[ext_resource type="Texture2D" uid="uid://bguyr7ixh5mgu" path="res://assets/png/side_view_table.png" id="6_ph6ao"]
+[ext_resource type="Script" path="res://src/anubis_scene/EarthDoorEXIT.gd" id="7_bpn60"]
+[ext_resource type="PackedScene" uid="uid://ddwoa0wudaq52" path="res://src/anubis_scene/sv_player.tscn" id="7_yhdkl"]
+[ext_resource type="Texture2D" uid="uid://clcnfjpfbsgxu" path="res://assets/png/gate-big-Sheet.png" id="9_agwx1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfvhm"]
+size = Vector2(76, 184)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8fmo"]
+size = Vector2(640, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8odl"]
+size = Vector2(80, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgysg"]
+size = Vector2(48, 96)
+
+[sub_resource type="Animation" id="Animation_gfrwj"]
+resource_name = "fade_to_black"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_50i3n"]
+_data = {
+"fade_to_black": SubResource("Animation_gfrwj")
+}
+
+[node name="AnubisScene" type="Node2D"]
+script = ExtResource("1_u42al")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_77aex")
+
+[node name="PlayerDialogue" parent="." instance=ExtResource("3_jbocb")]
+visible = false
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 261.0
+offset_right = 640.0
+offset_bottom = 359.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="CharacterDialogue" parent="." instance=ExtResource("4_pmm8b")]
+visible = false
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_right = 640.0
+offset_bottom = 98.0
+grow_horizontal = 1
+size_flags_vertical = 0
+
+[node name="SideViewTable" type="Sprite2D" parent="."]
+position = Vector2(320, 240)
+texture = ExtResource("6_ph6ao")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="RightWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(602, 164)
+shape = SubResource("RectangleShape2D_xfvhm")
+
+[node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(36, 164)
+shape = SubResource("RectangleShape2D_xfvhm")
+
+[node name="Floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(320, 308)
+shape = SubResource("RectangleShape2D_c8fmo")
+
+[node name="Player2" parent="." instance=ExtResource("7_yhdkl")]
+z_index = 1
+position = Vector2(319, 222)
+collision_layer = 2
+collision_mask = 0
+
+[node name="EarthDoor" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("7_bpn60")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthDoor"]
+position = Vector2(144, 208)
+shape = SubResource("RectangleShape2D_g8odl")
+
+[node name="Sprite2D" type="Sprite2D" parent="EarthDoor"]
+position = Vector2(144, 209)
+texture = ExtResource("9_agwx1")
+hframes = 4
+
+[node name="AfterlifeDoor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AfterlifeDoor"]
+position = Vector2(512, 208)
+shape = SubResource("RectangleShape2D_bgysg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="AfterlifeDoor"]
+position = Vector2(495, 209)
+texture = ExtResource("9_agwx1")
+hframes = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+offset_left = -128.0
+offset_top = -99.0
+offset_right = 825.0
+offset_bottom = 491.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_50i3n")
+}
+
+[connection signal="SELECTED" from="PlayerDialogue" to="." method="_on_player_dialogue_selected"]
+[connection signal="body_entered" from="EarthDoor" to="EarthDoor" method="_on_body_entered"]
+[connection signal="body_exited" from="EarthDoor" to="EarthDoor" method="_on_body_exited"]
