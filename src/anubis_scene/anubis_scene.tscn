@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0al8xm7lo64i"]
+[gd_scene load_steps=15 format=3 uid="uid://d0al8xm7lo64i"]
 
 [ext_resource type="Script" path="res://src/anubis_scene/anubis_scene.gd" id="1_g62kf"]
 [ext_resource type="Texture2D" uid="uid://c5rsshcnhb6gl" path="res://assets/png/side_view_bg.png" id="2_ieiqx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bguyr7ixh5mgu" path="res://assets/png/side_view_table.png" id="6_xctuf"]
 [ext_resource type="PackedScene" uid="uid://ddwoa0wudaq52" path="res://src/anubis_scene/sv_player.tscn" id="7_128fs"]
 [ext_resource type="Script" path="res://src/anubis_scene/earthDoor.gd" id="9_4h80h"]
+[ext_resource type="Texture2D" uid="uid://clcnfjpfbsgxu" path="res://assets/png/gate-big-Sheet.png" id="9_whsb4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfvhm"]
 size = Vector2(76, 184)
@@ -91,11 +92,23 @@ script = ExtResource("9_4h80h")
 position = Vector2(128, 208)
 shape = SubResource("RectangleShape2D_g8odl")
 
+[node name="Sprite2D" type="Sprite2D" parent="EarthDoor"]
+position = Vector2(144, 209)
+texture = ExtResource("9_whsb4")
+hframes = 4
+frame = 2
+
 [node name="AfterlifeDoor" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AfterlifeDoor"]
 position = Vector2(512, 208)
 shape = SubResource("RectangleShape2D_bgysg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="AfterlifeDoor"]
+position = Vector2(495, 209)
+texture = ExtResource("9_whsb4")
+hframes = 4
+frame = 2
 
 [node name="Anubis" type="Area2D" parent="."]
 
