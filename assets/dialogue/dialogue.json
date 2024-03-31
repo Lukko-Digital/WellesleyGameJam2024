@@ -47,6 +47,36 @@
 			"Sure..."
 		]
 	],
+	"NotInterested": [
+		"Not interested? I'm sure it's a cheap edition."
+	],
+	"Uhhh": [
+		[
+			"Uhhh",
+			"Yeah not that neat"
+		]
+	],
+	"Anyways": [
+		"Well Anyways. Off to the underworld",
+		"If you're careful, you might be able to make it...",
+		"to the FIELD OF REEDS"
+	],
+	"FieldOf": [
+		[
+			"What's that",
+			"Roll credits"
+		]
+	],
+	"Busy": [
+		"I'm quite busy, off you go",
+		"Exit to the right"
+	],
+	"OffWeGo": [
+		[
+			"Off we go",
+			"See ya"
+		]
+	],
 	"EarthDoor": [
 		[
 			"This door seems like it's locked."
