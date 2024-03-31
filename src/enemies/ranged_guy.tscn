@@ -74,26 +74,28 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p51o4"]
-radius = 11.0
-height = 42.0
+radius = 13.0
+height = 48.0
 
 [node name="ranged_guy" type="Node2D"]
 
 [node name="enemy" parent="." instance=ExtResource("1_7dk8x")]
 script = ExtResource("2_ilfx5")
 SPEED = 80
-MAX_HEALTH = 20
+MAX_HEALTH = 6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemy"]
 sprite_frames = SubResource("SpriteFrames_5xe8q")
-animation = &"idle"
+animation = &"walk"
+frame_progress = 0.990423
 
 [node name="staff" parent="enemy" instance=ExtResource("4_yogfi")]
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
-position = Vector2(2, 3)
+position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_p51o4")
 
 [node name="AttackRay" type="RayCast2D" parent="enemy"]
 target_position = Vector2(250, 0)
-collision_mask = 2
+collision_mask = 3

@@ -570,20 +570,19 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rgnxm"]
-radius = 5.0
-height = 36.0
+radius = 7.0
+height = 38.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
-collision_mask = 0
 script = ExtResource("1_8v8oq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_etwbb")
-animation = &"dodge_down"
-frame = 5
+animation = &"idle_back"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_rgnxm")
 
 [node name="ui" parent="." instance=ExtResource("2_2xssp")]
