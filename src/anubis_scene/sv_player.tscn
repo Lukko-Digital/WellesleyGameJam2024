@@ -1,20 +1,69 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddwoa0wudaq52"]
+[gd_scene load_steps=10 format=3 uid="uid://ddwoa0wudaq52"]
 
 [ext_resource type="Script" path="res://src/anubis_scene/player2.gd" id="1_dssc2"]
-[ext_resource type="Texture2D" uid="uid://he7ho38x5ww" path="res://assets/png/side_view_player.png" id="2_2ptqr"]
+[ext_resource type="Texture2D" uid="uid://cllnub8du1tk7" path="res://assets/png/side_view_player-sheet.png" id="3_2ps7d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vgjg"]
 radius = 16.0
 height = 64.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7tsl"]
+atlas = ExtResource("3_2ps7d")
+region = Rect2(0, 0, 54, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrwt7"]
+atlas = ExtResource("3_2ps7d")
+region = Rect2(54, 0, 54, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h48pb"]
+atlas = ExtResource("3_2ps7d")
+region = Rect2(108, 0, 54, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m3oc"]
+atlas = ExtResource("3_2ps7d")
+region = Rect2(162, 0, 54, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diomi"]
+atlas = ExtResource("3_2ps7d")
+region = Rect2(216, 0, 54, 79)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mg1m4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7tsl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrwt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h48pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m3oc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_diomi")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
 [node name="Player2" type="CharacterBody2D"]
 collision_layer = 15
 script = ExtResource("1_dssc2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(224, 224)
-texture = ExtResource("2_2ptqr")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(224, 224)
+position = Vector2(-2, 1)
 shape = SubResource("CapsuleShape2D_5vgjg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mg1m4")
+animation = &"walk"
+frame_progress = 0.232703
