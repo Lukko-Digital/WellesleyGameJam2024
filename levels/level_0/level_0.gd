@@ -15,12 +15,12 @@ var waves_spawned = 0
 
 
 func _ready():
-#	spawn_wave()
-#	await get_tree().create_timer(15).timeout
-#	spawn_wave()
-#	await get_tree().create_timer(15).timeout
-#	spawn_wave()
-	await get_tree().create_timer(10).timeout
+	spawn_wave()
+	await get_tree().create_timer(15).timeout
+	spawn_wave()
+	await get_tree().create_timer(15).timeout
+	spawn_wave()
+	await get_tree().create_timer(15).timeout
 	$map/Door.activate()
 
 
