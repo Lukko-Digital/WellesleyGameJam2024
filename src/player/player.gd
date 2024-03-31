@@ -42,7 +42,11 @@ func _physics_process(delta):
 
 
 func handle_movement():
-	if rolling: return
+	if rolling:
+		if sprite.frame != 4:
+			return
+		velocity *= 0.9
+		return
 	var direction = Vector2(
 		Input.get_axis("left", "right"), Input.get_axis("up", "down")
 	).normalized()
