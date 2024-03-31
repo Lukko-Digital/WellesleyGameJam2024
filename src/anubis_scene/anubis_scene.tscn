@@ -117,7 +117,6 @@ shape = SubResource("RectangleShape2D_g8odl")
 position = Vector2(144, 209)
 texture = ExtResource("9_whsb4")
 hframes = 4
-frame = 2
 
 [node name="AfterlifeDoor" type="Area2D" parent="."]
 
@@ -129,7 +128,6 @@ shape = SubResource("RectangleShape2D_bgysg")
 position = Vector2(495, 209)
 texture = ExtResource("9_whsb4")
 hframes = 4
-frame = 2
 
 [node name="Anubis" type="Area2D" parent="."]
 
